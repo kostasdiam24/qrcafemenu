@@ -12,7 +12,7 @@
 
   .container {
     max-width: 900px;
-
+margin: auto;
   }
 
   .brand {
@@ -39,6 +39,7 @@
     font-size: 6rem;
     font-weight: 300;
     line-height: 0.9;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
   }
 
   .hero h2 {
@@ -46,6 +47,7 @@
     font-size: 12rem;
     font-weight: 400;
     line-height: 0.8;
+    text-shadow: 3px 5px 8px rgba(143, 63, 33, 0.25);
   }
 
   .menu-grid {
@@ -63,6 +65,7 @@
     letter-spacing: 1px;
     text-align: center;
     scroll-margin-top: 90px;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
   }
 
   .item {
@@ -108,180 +111,199 @@
     margin-top: 3px;
   }
 
+  /* --- Footer Layout Adjustments --- */
+.footer-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(143, 63, 33, 0.2);
+  }
+  
   .contact {
-    display: flex;               /* Arrange children side by side */
-    justify-content: center;     /* Center the whole container horizontally */
-    gap: 20px;                  /* Small gap between left and right groups */
-    align-items: center;         /* Vertically align items if needed */
-    flex-wrap: nowrap;           /* Prevent wrapping to next line */
-    margin-top: 30px;             /* Center container if needed */
-    max-width: 500px;            /* Optional: limit width */
-  }
-  
-  .contact-left, .contact-right {
-    display: flex;               /* Arrange items inside each group horizontally */
-    flex-direction: column;      /* Stack items vertically inside each group */
-    gap: 10px;                   /* Small gap between items inside each group */
-    align-items: flex-start;     /* Align items to the left inside each group */
-  }
-  
-  .footimg{
-    width:40px;
-    height:40px;
-
-    object-fit:contain;
-
-    display:block;
-    margin-left: 20px;
-}
-
-  .contact-item {
-    font-size: 0.95rem;
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: 60px; /* Spacious separation on desktop */
+    width: 100%;
+    max-width: 800px; /* Spreads beautifully across the layout width */
   }
-
+  
+  .contact-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center; /* Vertically aligns image/icon with text */
+    gap: 15px; /* Keeps the icon tightly next to its text */
+    font-size: 0.95rem;
+  }
+  
+  .footimg {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
   .contact-item p {
-    margin: 0;    /* remove default paragraph margin */
+    margin: 0;
     text-align: left;
+    line-height: 1.4;
   }
-
-  .footer-space {
-    height: 20px;
-  }
-
+  
+  /* --- Mobile Responsiveness --- */
   @media (max-width: 768px) {
-    .container {
-      padding: 30px 20px;
-    }
+  
+  /* 1. Prevent giant shapes from breaking mobile width layouts */
+  html, body {
 
-    .hero h1 {
-      font-size: 4rem;
-    }
+    width: 100%;
+  }
 
-    .hero h2 {
-      font-size: 6rem;
-    }
+  /* 2. Scale down the giant hero titles so they fit on small screens */
+  .hero {
+    margin-top: -30px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
 
-    .menu-grid {
-      grid-template-columns: 1fr;
-      gap: 35px;
-    }
+  .hero h1 {
+    font-size: 3.7rem; /* Scaled down from 6rem */
+  }
 
-    .section-title {
-      font-size: 2rem;
-    }
-
-    .contact {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  .hero h2 {
+    font-size: 6.2rem; /* Scaled down from 12rem */
   }
 
 
 
+  /* 3. Scale down the decorative side circles so they match mobile viewports */
+  .scroll-shape {
+    width: 140px;  /* Smaller size for mobile screens */
+    height: 160px;
+  }
+
+  .left-shape {
+    left: -80px;  /* Tucked in tightly to prevent layout stretching */
+  }
+
+  .right-shape {
+    right: -80px; /* Tucked in tightly to prevent layout stretching */
+  }
+
+  /* 4. Layout Constraints */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 15px;
+    margin: 0 auto;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* 5. Footer handling */
+  .contact {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .contact-column {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   NEW LAPTOP & TABLET VIEWPORT FIX (Between 769px and 1100px)
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .container {
+    max-width: 90%; /* Keeps content away from the edges on small laptops */
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: 4.5rem; /* Slightly reduced for medium screens */
+  }
+
+  .hero h2 {
+    font-size: 9rem; /* Slightly reduced for medium screens */
+  }
+
+  .left-shape {
+    left: -180px; /* Adjusting side shapes slightly so they don't overlap menu boxes */
+  }
+
+  .right-shape {
+    right: -180px;
+  }
+}
   html{
     scroll-behavior:smooth;
 }
 
-.menu-nav{
-
-    position:sticky;
-    top:0;
-
-    display:flex;
-    justify-content:center;
-    gap:12px;
-
-    padding:15px;
-
-    margin-bottom:40px;
-
-    background:rgba(247,244,239,.95);
-
-    backdrop-filter:blur(10px);
-
-    z-index:1000;
-}
-
-.menu-nav a{
-
-    text-decoration:none;
-
-    color:#8f3f21;
-
-    background:white;
-
-    padding:10px 16px;
-
-    border-radius:999px;
-
-    font-size:.9rem;
-
-    font-weight:500;
-
-    transition:.25s;
-
-    box-shadow:0 3px 8px rgba(0,0,0,.08);
-}
-
-.menu-nav a:hover{
-
-    background:#8f3f21;
-
-    color:white;
-
-    transform:translateY(-2px);
-
-}
-
-.menu-nav{
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* --- ΚΕΝΤΡΙΚΟΣ ΚΑΝΟΝΑΣ NAVBAR (Για όλες τις οθόνες) --- */
+  .menu-nav {
+    position: -webkit-sticky; /* Για υποστήριξη σε Safari (iPhone) */
     position: sticky;
     top: 0;
     left: 0;
-
     width: 100%;
-    padding: 12px 20px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 18px;
-
-    background: rgba(247,244,239,.96);
+    padding: 15px;
+    margin-bottom: 40px;
+    background: rgba(247, 244, 239, 0.96);
     backdrop-filter: blur(12px);
-
-    z-index: 1000;
-    
-}
-
-.menu-nav::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.menu-nav a{
-
-    white-space:nowrap;
-
-    flex-shrink:0;
-
+    z-index: 9999; /* Κρατάει το navbar πάνω από τους κύκλους και τα πιάτα */
+  }
+  
+  .menu-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .menu-nav a {
+    text-decoration: none;
+    color: #8f3f21;
+    background: white;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: .25s;
+    white-space: nowrap;
+    flex-shrink: 0;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.3s ease;
-
-}
-
-.navimg{
-    width:40px;
-    height:40px;
-
-    object-fit:contain;
-
-    display:block;
-    
-}
+  }
+  
+  .menu-nav a:hover {
+    background: #8f3f21;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .navimg {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+  }
 
 @media (max-width: 380px) {
     .menu-nav {
