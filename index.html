@@ -19,13 +19,15 @@
   </head>
 
   <body><div class="brand">
-    <span style="margin-top: 30px;">YOUR BRAND :)</span>
+    <span style="margin-top: 30px;">YOUR BRAND LOGO HERE :)</span>
   </div>
   <nav class="menu-nav">
-    <a href="#iced"><img src="resources/img/iced.jpg" class="navimg" alt=""></a>
+    <a href="#iced"><img src="resources/img/icedcoffee.jpg" class="navimg" alt=""></a>
     <a href="#hot"><img src="resources/img/hot.jpg" class="navimg" alt=""></a>
     <a href="#brunch"><img src="resources/img/brunch.jpg" class="navimg" alt=""></a>
     <a href="#bakery"><img src="resources/img/baked good.jpg" class="navimg" alt=""></a>
+    <a href="#sodas"><img src="resources/img/soda.jpg" class="navimg" alt=""></a>
+
 </nav>
     <div class="container">
       
@@ -141,6 +143,54 @@
             </div>
           </div>
 
+          <div>
+            <h3 id="sodas" class="section-title">Beverages</h3>
+  
+            <div class="item">
+              <div class="item-row">
+                <div class="item-name">Φυσικοί Χυμοί</div>
+                <div class="item-price">€3.00</div>
+              </div>
+              <div class="item-desc">Από τοπική φάρμα!</div>
+            </div>
+  
+            <div class="item">
+              <div class="item-row">
+                <div class="item-name">Αναψυκτικά</div>
+                <div class="item-price">€1.90</div>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="item-row">
+                <div class="item-name">Redbull</div>
+                <div class="item-price">€2.00</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item-row">
+                <div class="item-name">Παγωμένη σοκολάτα</div>
+                <div class="item-price">€4.50</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item-row">
+                <div class="item-name">Ζεστή σοκολάτα</div>
+                <div class="item-price">€3.70</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item-row">
+                <div class="item-name">Τσάι</div>
+                <div class="item-price">€1.70</div>
+              </div>
+              <div class="item-desc">Πράσσινο, Μαύρο, Χαμομίλι</div>
+            </div>
+          </div>
+
       <div style="margin-top: 50px">
         <h3 id="brunch" class="section-title">Brunch</h3>
 
@@ -250,22 +300,78 @@
 </div>
 <br>
 <hr>
-
+<center>
       <div class="contact">
         <div class="contact-left">
-          <div class="contact-item">📞 +30 690 000 0000</div>
+          <div class="contact-item">
+            <img class="footimg" src="resources/img/telephone.jpg" alt="">
+            <p>+30 690 000 0000</p>
+          </div>
 
-          <div class="contact-item">✉️ hello@coffee.gr</div>
+          <div class="contact-item">
+            <img class="footimg" src="resources/img/email.jpg" alt="">
+            <p>yourbrand@coffee.gr</p>
+          </div>
         </div>
 
         <div class="contact-right">
-          <div class="contact-item">📍 Patras, Greece</div>
+          <div class="contact-item">
+            <img class="footimg" src="resources/img/location.jpg" alt="">
+            <p>Patras, Greece</p>
+          </div>
 
-          <div class="contact-item">📸 @laranacoffee</div>
+          <div class="contact-item">
+            <img class="footimg" src="resources/img/webicon.jpg" alt="">
+            <p>Template made by<a href="https://kostasdiam24.github.io"> Kostas Diamantopoulos 2026 © ALL RIGHTS RESERVED</p></a>
+          </div>
         </div>
       </div>
+    </center>
+ 
+
+    <!-- Left side shapes -->
+<div class="scroll-shape left-shape" style="top: 25%;"></div>
+<div class="scroll-shape left-shape" style="top: 55%;"></div>
+<div class="scroll-shape left-shape" style="top: 84%;"></div>
+
+<!-- Right side shapes -->
+<div class="scroll-shape right-shape" style="top: 15%;"></div>
+<div class="scroll-shape right-shape" style="top: 45%;"></div>
+<div class="scroll-shape right-shape" style="top: 75%;"></div>
+
 
       <div class="footer-space"></div>
     </div>
+
+    <script>
+      let lastScrollY = window.scrollY;
+const leftShapes = document.querySelectorAll('.left-shape');
+const rightShapes = document.querySelectorAll('.right-shape');
+let currentOffset = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const delta = scrollY - lastScrollY;
+
+  currentOffset -= delta * 0.5;
+  currentOffset = Math.min(150, Math.max(-150, currentOffset));
+
+  // Move all left shapes
+  leftShapes.forEach(shape => {
+    const baseTop = parseFloat(shape.style.top);
+    shape.style.transform = `translateY(calc(-50% + ${currentOffset}px))`;
+  });
+
+  // Move all right shapes
+  rightShapes.forEach(shape => {
+    shape.style.transform = `translateY(calc(-50% + ${currentOffset}px))`;
+  });
+
+  lastScrollY = scrollY;
+});
+
+
+    </script>
   </body>
+
 </html>
