@@ -75,11 +75,10 @@ margin: auto;
     margin-bottom:18px;
 
     box-shadow:
-        0 4px 10px rgba(0,0,0,.08);
+        8px 4px 10px rgba(0,0,0,.08);
 
     transition:.25s;
-    border-bottom: 3px solid #822711;
-    border-right: 3px solid #822711;
+    border: 2px solid #822711;
     box-shadow: 0 10px 3px rgba(0, 0, 0, 0.1);
   }
 
@@ -365,3 +364,123 @@ a {
     clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%, 100% 50%);
   }
   
+
+
+
+
+  /* ========================================= */
+/*              PAGE ANIMATIONS              */
+/* ========================================= */
+
+/* Hero */
+.hero{
+  opacity:0;
+  transform:translateY(-30px);
+  transition:all .9s ease;
+}
+
+.hero.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Navigation */
+
+.menu-nav{
+  opacity:0;
+  transform:translateY(-20px);
+  transition:all .8s ease .2s;
+}
+
+.menu-nav.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Section titles */
+
+.section-title{
+
+  opacity:0;
+  transform:translateY(25px);
+  transition:all .7s ease;
+}
+
+.section-title.show{
+
+  opacity:1;
+  transform:translateY(0);
+
+}
+
+/* Cards */
+
+.item{
+
+  opacity:0;
+  transform:translateY(25px);
+
+  transition:
+      opacity .55s ease,
+      transform .55s ease,
+      box-shadow .25s ease,
+      transform .25s ease;
+
+}
+
+.item.show{
+
+  opacity:1;
+  transform:translateY(0);
+
+}
+
+/* Hover */
+
+.item:hover{
+
+  transform:translateY(-5px);
+
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+
+}
+
+/* Images at the end of sections */
+
+.section-image{
+
+  width:100%;
+  
+  margin-top:25px;
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transform:translateY(30px);
+
+  transition:all .8s ease;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.section-image.show{
+
+  opacity:1;
+
+  transform:translateY(0);
+
+}
+
+.section-image img{
+
+  width:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+}
