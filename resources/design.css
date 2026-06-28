@@ -283,7 +283,7 @@ html {
     color: #8f3f21;
     background: white;
     padding: 10px 16px;
-    border-radius: 999px;
+    border-radius: 50%;
     font-size: .9rem;
     font-weight: 500;
     transition: .25s;
@@ -293,7 +293,7 @@ html {
   }
   
   .menu-nav a:hover {
-    background: #8f3f21;
+    background: #b28474;
     color: white;
     transform: translateY(-2px);
   }
